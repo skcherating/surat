@@ -1,348 +1,332 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ms">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjana Surat Makluman Disiplin SK Cherating</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Form Controls Container */
+        .controls {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        .controls h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+        .btn-print {
+            width: 100%;
+            background: #0056b3;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-print:hover {
+            background: #004494;
+        }
+
+        /* A4 Letter Paper Styles */
+        .letter-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        /* Letterhead Styles */
+        .letterhead {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .logo-sekolah {
+            width: 80px; /* Saiz tidak terlalu besar */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto; /* Berada tepat di tengah */
+        }
+        .school-name {
+            font-size: 16pt;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .unit-name {
+            font-size: 12pt;
+            font-weight: bold;
+            margin: 5px 0 0 0;
+        }
+
+        /* Letter Body */
+        .letter-body {
+            margin-bottom: 30px;
+        }
+        .subject {
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: underline;
+            margin: 20px 0;
+        }
+        .signature {
+            margin-top: 40px;
+        }
+
+        /* Action Box (Tear-off slip) */
+        .action-box {
+            border: 2px dashed #000;
+            padding: 15px;
+            margin-top: 40px;
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            background-color: #fafafa;
+        }
+        .action-box h4 {
+            margin-top: 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 10pt;
+        }
+        .cut-line-text {
+            text-align: center;
+            font-size: 9pt;
+            color: #555;
+            margin-top: -30px;
+            margin-bottom: 20px;
+            background: white;
+            display: inline-block;
+            padding: 0 10px;
+        }
+        .cut-line-wrapper {
+            text-align: center;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+            .controls {
+                display: none; /* Hide the form when printing */
+            }
+            .letter-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 15mm;
+                width: 100%;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="ms"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Penjana Surat Makluman Disiplin SK Cherating&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* General Page Styles */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f9;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Form Controls Container */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.controls {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 300px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: fit-content;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.controls h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-group {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-group label {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-group input, .form-group textarea {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: inherit;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-group textarea {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>resize: vertical;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 80px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-print {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #0056b3;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-print:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #004494;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* A4 Letter Paper Styles */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.letter-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 210mm;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 297mm;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20mm;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 8px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: "Times New Roman", Times, serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12pt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Letterhead Styles */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.letterhead {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.logo-sekolah {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 80px; /* Saiz tidak terlalu besar */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 10px auto; /* Berada tepat di tengah */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.school-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 16pt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.unit-name {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12pt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 5px 0 0 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Letter Body */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.letter-body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.subject {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.signature {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Action Box (Tear-off slip) */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.action-box {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px dashed #000;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11pt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fafafa;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.action-box h4 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 10pt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cut-line-text {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 9pt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: -30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cut-line-wrapper {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Print Settings */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media print {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>background: none;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.controls {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>display: none; /* Hide the form when printing */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.letter-container {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>box-shadow: none;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding: 15mm;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>@page {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>size: A4;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="controls"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Butiran Surat&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="dateInput"&gt;Tarikh Surat:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="date" id="dateInput" onchange="updateLetter()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="parentInput"&gt;Nama Ibu/Bapa/Penjaga:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="parentInput" placeholder="Cth: Encik Ahmad bin Ali" oninput="updateLetter()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="studentInput"&gt;Nama Murid:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="studentInput" placeholder="Cth: Muhammad Alif" oninput="updateLetter()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="classInput"&gt;Kelas:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="classInput" placeholder="Cth: 4 Bestari" oninput="updateLetter()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-group"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label for="issueInput"&gt;Isu Disiplin / Kesalahan:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;textarea id="issueInput" placeholder="Cth: Kerap ponteng sekolah tanpa sebab yang munasabah." oninput="updateLetter()"&gt;&lt;/textarea&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="btn-print" onclick="window.print()"&gt;Cetak Surat&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="letter-container" id="printableArea"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="letterhead"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="logo_sekolah.png" alt="Logo Sekolah Kebangsaan Cherating" class="logo-sekolah"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="school-name"&gt;Sekolah Kebangsaan Cherating&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="unit-name"&gt;Unit Hal Ehwal Murid (Disiplin)&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="font-size: 10pt; margin: 2px 0; font-family: Arial;"&gt;26080 Kuantan, Pahang Darul Makmur&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="letter-body"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="text-align: right; margin-bottom: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Tarikh: &lt;span id="outDate"&gt;&lt;strong&gt;[Tarikh]&lt;/strong&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Kepada:&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong id="outParent"&gt;[Nama Ibu Bapa / Penjaga]&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Ibu Bapa / Penjaga kepada,&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong id="outStudent"&gt;[Nama Murid]&lt;/strong&gt; (&lt;span id="outClass"&gt;[Kelas]&lt;/span&gt;)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Tuan/Puan,&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="subject"&gt;MAKLUMAN MASALAH DISIPLIN PELAJAR&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Dengan segala hormatnya, perkara di atas adalah dirujuk.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>2. Adalah dimaklumkan bahawa anak jagaan tuan/puan didapati telah melakukan kesalahan disiplin di sekolah. Butiran kesalahan adalah seperti berikut:</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="padding-left: 20px; font-weight: bold;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span id="outIssue"&gt;[Sila nyatakan isu disiplin di ruang borang sebelah kiri]&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>3. Pihak sekolah memandang serius mengenai pelanggaran peraturan sekolah ini. Kami berharap tuan/puan dapat mengambil maklum akan perkara ini dan memberi kerjasama untuk menasihati anak jagaan tuan/puan agar tingkah laku ini tidak berulang pada masa hadapan.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>4. Sila lengkapkan dan kembalikan keratan maklum balas di bahagian bawah surat ini kepada pihak sekolah dalam kadar segera.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Kerjasama dan keprihatinan daripada pihak tuan/puan amat kami hargai.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Sekian, terima kasih.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;"MALAYSIA MADANI"&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;strong&gt;"BERKHIDMAT UNTUK NEGARA"&lt;/strong&gt;&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="signature"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;Saya yang menjalankan amanah,&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;....................................................................&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;strong&gt;(PUAN ZAINON BINTI HAJI JUFRI)&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Guru Penolong Kanan Hal Ehwal Murid&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>Sekolah Kebangsaan Cherating&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="cut-line-wrapper"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="cut-line-text"&gt;✂ POTONG DI SINI ✂&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="action-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4&gt;Keratan Maklum Balas Ibu Bapa / Penjaga&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Kepada: Guru Penolong Kanan Hal Ehwal Murid SK Cherating&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Saya, penjaga kepada &lt;strong&gt;&lt;span id="outStudentBox"&gt;[Nama Murid]&lt;/span&gt;&lt;/strong&gt; dari kelas &lt;strong&gt;&lt;span id="outClassBox"&gt;[Kelas]&lt;/span&gt;&lt;/strong&gt; mengambil maklum tentang isu disiplin yang dimaklumkan.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Tindakan / Langkah pembetulan yang telah saya ambil ke atas anak jagaan saya adalah:&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="border-bottom: 1px dotted #000; height: 30px; width: 100%; margin-bottom: 10px;"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="border-bottom: 1px dotted #000; height: 30px; width: 100%; margin-bottom: 20px;"&gt;&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;table style="width: 100%; margin-top: 30px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td style="width: 60%;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Tandatangan: ...................................................&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Nama Penjaga: ................................................</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;td style="width: 40%; vertical-align: top;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>Tarikh: ...................................................</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function updateLetter() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Get values from form</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const dateVal = document.getElementById('dateInput').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const parentVal = document.getElementById('parentInput').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const studentVal = document.getElementById('studentInput').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const classVal = document.getElementById('classInput').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const issueVal = document.getElementById('issueInput').value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Format date (optional, making it look nicer like DD-MM-YYYY)</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let formattedDate = "[Tarikh]";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if(dateVal) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const dateObj = new Date(dateVal);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const day = String(dateObj.getDate()).padStart(2, '0');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Months are 0-11</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const year = dateObj.getFullYear();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>formattedDate = `${day}/${month}/${year}`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Update letter text</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outDate').innerText = dateVal ? formattedDate : "[Tarikh]";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outParent').innerText = parentVal || "[Nama Ibu Bapa / Penjaga]";</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outStudent').innerText = studentVal || "[Nama Murid]";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outStudentBox').innerText = studentVal || "[Nama Murid]";</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outClass').innerText = classVal || "[Kelas]";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outClassBox').innerText = classVal || "[Kelas]";</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('outIssue').innerText = issueVal || "[Sila nyatakan isu disiplin di ruang borang sebelah kiri]";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <div class="controls">
+        <h2>Butiran Surat</h2>
+        
+        <div class="form-group">
+            <label for="dateInput">Tarikh Surat:</label>
+            <input type="date" id="dateInput" onchange="updateLetter()">
+        </div>
+
+        <div class="form-group">
+            <label for="parentInput">Nama Ibu/Bapa/Penjaga:</label>
+            <input type="text" id="parentInput" placeholder="Cth: Encik Ahmad bin Ali" oninput="updateLetter()">
+        </div>
+
+        <div class="form-group">
+            <label for="studentInput">Nama Murid:</label>
+            <input type="text" id="studentInput" placeholder="Cth: Muhammad Alif" oninput="updateLetter()">
+        </div>
+
+        <div class="form-group">
+            <label for="classInput">Kelas:</label>
+            <input type="text" id="classInput" placeholder="Cth: 4 Bestari" oninput="updateLetter()">
+        </div>
+
+        <div class="form-group">
+            <label for="issueInput">Isu Disiplin / Kesalahan:</label>
+            <textarea id="issueInput" placeholder="Cth: Kerap ponteng sekolah tanpa sebab yang munasabah." oninput="updateLetter()"></textarea>
+        </div>
+
+        <button class="btn-print" onclick="window.print()">Cetak Surat</button>
+    </div>
+
+    <div class="letter-container" id="printableArea">
+        
+        <div class="letterhead">
+            <img src="logo_sekolah.png" alt="Logo Sekolah Kebangsaan Cherating" class="logo-sekolah">
+            <p class="school-name">Sekolah Kebangsaan Cherating</p>
+            <p class="unit-name">Unit Hal Ehwal Murid (Disiplin)</p>
+            <p style="font-size: 10pt; margin: 2px 0; font-family: Arial;">26080 Kuantan, Pahang Darul Makmur</p>
+        </div>
+
+        <div class="letter-body">
+            <div style="text-align: right; margin-bottom: 20px;">
+                Tarikh: <span id="outDate"><strong>[Tarikh]</strong></span>
+            </div>
+
+            <p>
+                Kepada:<br>
+                <strong id="outParent">[Nama Ibu Bapa / Penjaga]</strong><br>
+                Ibu Bapa / Penjaga kepada,<br>
+                <strong id="outStudent">[Nama Murid]</strong> (<span id="outClass">[Kelas]</span>)
+            </p>
+
+            <p>Tuan/Puan,</p>
+
+            <p class="subject">MAKLUMAN MASALAH DISIPLIN PELAJAR</p>
+
+            <p>
+                Dengan segala hormatnya, perkara di atas adalah dirujuk.
+            </p>
+
+            <p>
+                2. Adalah dimaklumkan bahawa anak jagaan tuan/puan didapati telah melakukan kesalahan disiplin di sekolah. Butiran kesalahan adalah seperti berikut:
+            </p>
+
+            <p style="padding-left: 20px; font-weight: bold;">
+                <span id="outIssue">[Sila nyatakan isu disiplin di ruang borang sebelah kiri]</span>
+            </p>
+
+            <p>
+                3. Pihak sekolah memandang serius mengenai pelanggaran peraturan sekolah ini. Kami berharap tuan/puan dapat mengambil maklum akan perkara ini dan memberi kerjasama untuk menasihati anak jagaan tuan/puan agar tingkah laku ini tidak berulang pada masa hadapan.
+            </p>
+
+            <p>
+                4. Sila lengkapkan dan kembalikan keratan maklum balas di bahagian bawah surat ini kepada pihak sekolah dalam kadar segera.
+            </p>
+
+            <p>Kerjasama dan keprihatinan daripada pihak tuan/puan amat kami hargai.</p>
+
+            <p>Sekian, terima kasih.</p>
+
+            <p><strong>"MALAYSIA MADANI"</strong><br>
+            <strong>"BERKHIDMAT UNTUK NEGARA"</strong></p>
+
+            <div class="signature">
+                <p>Saya yang menjalankan amanah,</p>
+                <br><br>
+                <p>....................................................................<br>
+                <strong>(PUAN ZAINON BINTI HAJI JUFRI)</strong><br>
+                Guru Penolong Kanan Hal Ehwal Murid<br>
+                Sekolah Kebangsaan Cherating</p>
+            </div>
+        </div>
+
+        <div class="cut-line-wrapper">
+            <span class="cut-line-text">✂ POTONG DI SINI ✂</span>
+        </div>
+        
+        <div class="action-box">
+            <h4>Keratan Maklum Balas Ibu Bapa / Penjaga</h4>
+            <p>Kepada: Guru Penolong Kanan Hal Ehwal Murid SK Cherating</p>
+            <p>Saya, penjaga kepada <strong><span id="outStudentBox">[Nama Murid]</span></strong> dari kelas <strong><span id="outClassBox">[Kelas]</span></strong> mengambil maklum tentang isu disiplin yang dimaklumkan.</p>
+            
+            <p>Tindakan / Langkah pembetulan yang telah saya ambil ke atas anak jagaan saya adalah:</p>
+            <div style="border-bottom: 1px dotted #000; height: 30px; width: 100%; margin-bottom: 10px;"></div>
+            <div style="border-bottom: 1px dotted #000; height: 30px; width: 100%; margin-bottom: 20px;"></div>
+
+            <table style="width: 100%; margin-top: 30px;">
+                <tr>
+                    <td style="width: 60%;">
+                        Tandatangan: ...................................................<br><br>
+                        Nama Penjaga: ................................................
+                    </td>
+                    <td style="width: 40%; vertical-align: top;">
+                        Tarikh: ...................................................
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function updateLetter() {
+            // Get values from form
+            const dateVal = document.getElementById('dateInput').value;
+            const parentVal = document.getElementById('parentInput').value;
+            const studentVal = document.getElementById('studentInput').value;
+            const classVal = document.getElementById('classInput').value;
+            const issueVal = document.getElementById('issueInput').value;
+
+            // Format date (optional, making it look nicer like DD-MM-YYYY)
+            let formattedDate = "[Tarikh]";
+            if(dateVal) {
+                const dateObj = new Date(dateVal);
+                const day = String(dateObj.getDate()).padStart(2, '0');
+                const month = String(dateObj.getMonth() + 1).padStart(2, '0'); // Months are 0-11
+                const year = dateObj.getFullYear();
+                formattedDate = `${day}/${month}/${year}`;
+            }
+
+            // Update letter text
+            document.getElementById('outDate').innerText = dateVal ? formattedDate : "[Tarikh]";
+            document.getElementById('outParent').innerText = parentVal || "[Nama Ibu Bapa / Penjaga]";
+            
+            document.getElementById('outStudent').innerText = studentVal || "[Nama Murid]";
+            document.getElementById('outStudentBox').innerText = studentVal || "[Nama Murid]";
+            
+            document.getElementById('outClass').innerText = classVal || "[Kelas]";
+            document.getElementById('outClassBox').innerText = classVal || "[Kelas]";
+            
+            document.getElementById('outIssue').innerText = issueVal || "[Sila nyatakan isu disiplin di ruang borang sebelah kiri]";
+        }
+    </script>
 </body>
 </html>
